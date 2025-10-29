@@ -49,5 +49,11 @@ debug_utils/
 # sphinx docs
 _build/
 
+# Python package metadata (auto-generated)
+*.egg-info/
+*.egg-info
+build/
+dist/
+
 
 output/

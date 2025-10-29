@@ -167,27 +167,27 @@ def parse_doc(
         end_page_id=None
 ):
     """
-        Parameter description:
-        path_list: List of document paths to be parsed, can be PDF or image files.
-        output_dir: Output directory for storing parsing results.
-        lang: Language option, default is 'ch', optional values include['ch', 'ch_server', 'ch_lite', 'en', 'korean', 'japan', 'chinese_cht', 'ta', 'te', 'ka']。
-            Input the languages in the pdf (if known) to improve OCR accuracy.  Optional.
-            Adapted only for the case where the backend is set to "pipeline"
-        backend: the backend for parsing pdf:
-            pipeline: More general.
-            vlm-transformers: More general.
-            vlm-vllm-engine: Faster(engine).
-            vlm-http-client: Faster(client).
-            without method specified, pipeline will be used by default.
-        method: the method for parsing pdf:
-            auto: Automatically determine the method based on the file type.
-            txt: Use text extraction method.
-            ocr: Use OCR method for image-based PDFs.
-            Without method specified, 'auto' will be used by default.
-            Adapted only for the case where the backend is set to "pipeline".
-        server_url: When the backend is `http-client`, you need to specify the server_url, for example:`http://127.0.0.1:30000`
-        start_page_id: Start page ID for parsing, default is 0
-        end_page_id: End page ID for parsing, default is None (parse all pages until the end of the document)
+    参数说明:
+        path_list：待解析的文档路径列表，可以是 PDF 文件或图像文件。
+        output_dir：用于存储解析结果的输出目录
+        lang：语言选项，默认为 'ch'，可选值包括 ['ch', 'ch_server', 'ch_lite', 'en', 'korean', 'japan', 'chinese_cht', 'ta', 'te', 'ka']。
+              如果已知 PDF 中包含的语言，可指定该参数以提升 OCR 识别准确率（可选）。
+              该参数仅在后端设置为 "pipeline" 时生效。
+        backend: PDF 解析所使用的后端：若未指定方法，默认使用 pipeline。
+                    pipeline：通用性更强。
+                    vlm-transformers：通用性更强。
+                    vlm-vllm-engine：速度更快（引擎模式）。
+                    vlm-http-client：速度更快（客户端模式）。
+                
+        method: PDF 解析所使用的方法：
+                    auto：根据文件类型自动选择解析方法。
+                    txt：使用纯文本提取方法。
+                    ocr：对基于图像的 PDF 使用 OCR 方法。
+                若未指定方法，默认使用 'auto'。
+                该参数仅在后端设置为 "pipeline" 时生效。
+        server_url: 当后端为 http-client 时，需指定服务器地址，例如：http://127.0.0.1:30000。
+        start_page_id: 开始解析的页面编号，默认为 0（即从第一页开始）。
+        end_page_id: 结束解析的页面编号，默认为 None（即解析至文档末尾所有页面）
     """
     try:
         file_name_list = []
